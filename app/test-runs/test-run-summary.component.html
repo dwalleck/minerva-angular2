@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+    <div class="panel-heading panel-success">
+        {{jobName}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table table-bordered table-condensed pull-left">
+                    <tr>
+                        <td>Last Executed</td>
+                        <td>{{lastRun}}</td>
+                    </tr>
+                    <tr>
+                        <td>Tests Passed</td>
+                        <td>{{passes}}</td>
+                    </tr>
+                    <tr>
+                        <td>Tests Failed</td>
+                        <td>{{failures}}</td>
+                    </tr>
+                    <tr>
+                        <td>Tests Skipped</td>
+                        <td>{{skips}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+               <base-chart class="chart"
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></base-chart>
+            </div>
+        </div>
+    </div>
+</div>
