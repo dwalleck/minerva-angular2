@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 
 import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
@@ -9,10 +9,14 @@ import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
   directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class DoughnutChartDemoComponent {
-  // Doughnut
-  public doughnutChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales', 'Amazon'];
-  public doughnutChartData:number[] = [350, 450, 100, 600];
-  public doughnutChartType:string = 'doughnut';
+  
+  @Input() passed: number;
+  @Input() failed: number;
+  @Input() skipped: number;
+  
+  public doughnutChartLabels: string[] = ['Passed', 'Failed', 'Skipped'];
+  public doughnutChartData: number[] = [this.passed, this.failed, this.skipped];
+  public doughnutChartType: string = 'doughnut';
 
   // events
   public chartClicked(e:any):void {

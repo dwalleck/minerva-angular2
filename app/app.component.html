@@ -1,0 +1,36 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class='navbar-brand' [routerLink]="['/welcome'] >{{pageTitle}}</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a [routerLink]="['/test_runs']">Test Runs</a></li>
+                <li><a [routerLink]="['/test_statistics']">Test Statistics</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container body-content">
+    <router-outlet></router-outlet>
+    <hr />
+    <footer>
+        <p>&copy; 2016 - Daryl Walleck</p>
+    </footer>
+</div>
+
+
+<!-- <div>
+        <nav class='navbar navbar-inverse navbar-fixed-top'>
+            <div class='container-fluid'>
+                <a class='navbar-brand'>{{pageTitle}}</a>
+                <ul class='nav navbar-nav'>
+                    <li><a [routerLink]="['/test_runs']">Test Runs</a></li>
+                    <li><a [routerLink]="['/test_statistics']">Test Statistics</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class='container'>
+            <router-outlet></router-outlet>
+        </div>
+     </div> -->

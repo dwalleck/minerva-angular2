@@ -4,21 +4,22 @@ import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
 
 import { WelcomeComponent } from './home/welcome.component';
 import { TestRunDashboardComponent } from './test-runs/test-run-dashboard.component';
+import { TestRunService } from './test-runs/test-run.service';
 
 @Component({
     selector: 'mh-app',
     template: `
     <div>
-        <nav class='navbar navbar-inverse navbar-fixed-top'>
-            <div class='container-fluid'>
-                <a class='navbar-brand'>{{pageTitle}}</a>
+        <nav class='navbar navbar-inverse'>
+            <div class='container'>
+                <a class='navbar-brand' [routerLink]="['/welcome']">{{pageTitle}}</a>
                 <ul class='nav navbar-nav'>
                     <li><a [routerLink]="['/test_runs']">Test Runs</a></li>
                     <li><a [routerLink]="['/test_statistics']">Test Statistics</a></li>
                 </ul>
             </div>
         </nav>
-        <div class='container'>
+        <div class='container body-content'>
             <router-outlet></router-outlet>
         </div>
      </div>
@@ -26,7 +27,8 @@ import { TestRunDashboardComponent } from './test-runs/test-run-dashboard.compon
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ROUTER_PROVIDERS,
-        HTTP_PROVIDERS
+        HTTP_PROVIDERS,
+        TestRunService
     ]
 })
 @Routes([
